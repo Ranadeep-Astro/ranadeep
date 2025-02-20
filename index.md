@@ -24,4 +24,4 @@ read any of the other things, such as
 - [Making an independent website](pages/my_first_page.html)
 
 Name the repository something easy for you to recognize and remember.
-   ![Screenshot of the "Create a new repository" page. The "Public" repository option is highlighted with an orange box.](/images/heading.png)
+   ![Two jets going away from each other.](/images/heading.png)
