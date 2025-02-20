@@ -24,4 +24,4 @@ read any of the other things, such as
 - [Making an independent website](pages/my_first_page.html)
 
 Name the repository something easy for you to recognize and remember.
-   ![Two jets going away from each other.](/images/heading.png)
+   ![Two jets going away from each other.](images/heading.png)
