@@ -20,7 +20,5 @@ Start by reading the [Overview page](pages/overview.html), which
 explains the basic structure of these sites. Then read
 [how to make an independent website](pages/independent_site.html). Then
 read any of the other things, such as
-[how to test your site locally](pages/local_test.html).
-
 - [Overview](pages/overview.html)
 - [Making an independent website](pages/my_first_page.html)
