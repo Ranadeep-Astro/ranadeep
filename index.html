@@ -18,23 +18,30 @@
       padding: 1rem 0;
       text-align: center;
     }
+    .container {
+      display: flex;
+      min-height: 80vh;
+    }
     nav {
       background-color: #005f99;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem 0;
+      flex-direction: column;
+      padding: 1rem;
+      width: 200px;
+      min-height: 100%;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      margin: 1rem 0;
     }
     nav a:hover {
       text-decoration: underline;
     }
     main {
       padding: 2rem;
+      flex-grow: 1;
       text-align: center;
     }
     img {
@@ -57,7 +64,7 @@
     <h1>Welcome to My Website</h1>
     <p>Simple site hosted on GitHub Pages</p>
   </header>
-
+<div class="container">
   <nav>
     <a href="#">Home</a>
     <a href="about.html">About</a>
