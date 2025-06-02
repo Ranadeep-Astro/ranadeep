@@ -56,7 +56,35 @@
       text-align: center;
       padding: 1rem 0;
       margin-top: 3rem;
-    }
+    }.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.feature-box {
+  text-align: center;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.feature-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}   
   </style>
 </head>
 <body>
@@ -75,13 +103,50 @@
     <section id="about">
       <h2>About This Site</h2>
       <p>This is a sample site with navigation and an image. You can customize it as you like!</p>
-      <img src="img1.png" alt="Sample Image" />
+      <!--img src="img1.png" alt="Sample Image" /-->
     </section>
+    
 
     <section id="contact">
       <h2>Contact</h2>
       <p>You can add your contact info or a form here.</p>
     </section>
+    <section id="features">
+    <h2>Explore Sections</h2>
+    <div class="feature-grid">
+      <a href="#section1" class="feature-box">
+        <img src="img1.png" alt="Section 1">
+        <p>Section 1</p>
+      </a>
+      <a href="#section2" class="feature-box">
+        <img src="img2.png" alt="Section 2">
+        <p>Section 2</p>
+      </a>
+      <a href="#section3" class="feature-box">
+      <img src="img3.png" alt="Section 3">
+      <p>Section 3</p>
+    </a>
+    <a href="#section4" class="feature-box">
+      <img src="img4.png" alt="Section 4">
+      <p>Section 4</p>
+    </a>
+    <a href="#section5" class="feature-box">
+      <img src="img5.png" alt="Section 5">
+      <p>Section 5</p>
+    </a>
+    <a href="#section6" class="feature-box">
+      <img src="img6.png" alt="Section 6">
+      <p>Section 6</p>
+    </a>
+  </div>
+  </section>
+  <section id="section1"><h2>Section 1</h2><p>Content here...</p></section>
+  <section id="section2"><h2>Section 2</h2><p>Content here...</p></section>
+  <section id="section3"><h2>Section 3</h2><p>Content here...</p></section>
+  <section id="section4"><h2>Section 4</h2><p>Content here...</p></section>
+  <section id="section5"><h2>Section 5</h2><p>Content here...</p></section>
+  <section id="section6"><h2>Section 6</h2><p>Content here...</p></section>
+
   </main>
 </div>
   
