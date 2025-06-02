@@ -56,29 +56,31 @@
       text-align: center;
       padding: 1rem 0;
       margin-top: 3rem;
-    }.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
+    }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-template-rows: repeat(2, 200px);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
 
 .feature-box {
-  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
   padding: 1rem;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* dark overlay for readability */
   transition: transform 0.2s, box-shadow 0.2s;
-  color: inherit;
-}
-
-.feature-box img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
 }
 
 .feature-box:hover {
@@ -111,35 +113,31 @@
       <h2>Contact</h2>
       <p>You can add your contact info or a form here.</p>
     </section>
+
     <section id="features">
-    <h2>Explore Sections</h2>
+      <h2>Explore Sections</h2>
     <div class="feature-grid">
-      <a href="#section1" class="feature-box">
-        <img src="img1.png" alt="Section 1">
-        <p>Section 1</p>
+      <a href="#section1" class="feature-box" style="background-image: url('img1.png');">
+        <span>Section 1</span>
       </a>
-      <a href="#section2" class="feature-box">
-        <img src="img2.png" alt="Section 2">
-        <p>Section 2</p>
+      <a href="#section2" class="feature-box" style="background-image: url('img2.png');">
+        <span>Section 2</span>
       </a>
-      <a href="#section3" class="feature-box">
-      <img src="img3.png" alt="Section 3">
-      <p>Section 3</p>
-    </a>
-    <a href="#section4" class="feature-box">
-      <img src="img4.png" alt="Section 4">
-      <p>Section 4</p>
-    </a>
-    <a href="#section5" class="feature-box">
-      <img src="img5.png" alt="Section 5">
-      <p>Section 5</p>
-    </a>
-    <a href="#section6" class="feature-box">
-      <img src="img6.png" alt="Section 6">
-      <p>Section 6</p>
-    </a>
-  </div>
+      <a href="#section3" class="feature-box" style="background-image: url('img3.png');">
+        <span>Section 3</span>
+      </a>
+      <a href="#section4" class="feature-box" style="background-image: url('img4.png');">
+        <span>Section 4</span>
+      </a>
+      <a href="#section5" class="feature-box" style="background-image: url('img5.png');">
+        <span>Section 5</span>
+      </a>
+      <a href="#section6" class="feature-box" style="background-image: url('img6.png');">
+        <span>Section 6</span>
+      </a>
+    </div>
   </section>
+
   <section id="section1"><h2>Section 1</h2><p>Content here...</p></section>
   <section id="section2"><h2>Section 2</h2><p>Content here...</p></section>
   <section id="section3"><h2>Section 3</h2><p>Content here...</p></section>
