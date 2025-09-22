@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website</title>
+  <meta name="description" content="Simple site hosted on GitHub Pages with research highlights and contact info." />
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --brand: #007acc;
+      --nav: #005f99;
+      --muted: #333;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, serif;
+      font-size: 18px;         /* a bit more compact for desktop; scales on mobile */
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Skip link for screen readers/keyboard */
+    .skip-link {
+      position: absolute; left: -9999px; top: auto;
+    }
+    .skip-link:focus {
+      left: 1rem; top: 1rem; background: #fff; color: #000;
+      padding: .5rem .75rem; border-radius: .5rem; z-index: 1000;
+    }
+
+    header {
+      background: var(--brand);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      min-height: 70vh;
+      gap: 1rem;
+    }
+
+    nav {
+      background: var(--nav);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      width: 16rem;            /* was 200pt; use responsive units */
+      flex-shrink: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: .5rem 0;
+      padding: .25rem .125rem;
+      border-radius: .35rem;
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      outline: none;
+      text-decoration: underline;
+      background: rgba(255,255,255,.08);
+    }
+
+    main {
+      padding: 1.5rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .feature-box {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 1rem;
+      border-radius: var(--radius);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-box:hover,
+    .feature-box:focus-visible {
+      transform: translateY(-4px);
+      outline: none;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.25);
+    }
+
+    footer {
+      background: var(--muted);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .content-with-video {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .content-with-video .text {
+      flex: 2;
+    }
+
+    .content-with-video .video {
+      flex: 1;
+      max-width: 400px;
+    }
+
+   .content-with-video video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Mobile: stack text above video */
+    @media (max-width: 768px) {
+    .content-with-video {
+      flex-direction: column;
+    }
+   }
+
+
+    /* Mobile tweaks */
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+      nav { width: 100%; border-bottom: 1px solid rgba(255,255,255,.15); }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .feature-grid { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header role="banner">
+    <h1>Welcome to My Website</h1>
+    <p>Simple site hosted on GitHub Pages</p>
+  </header>
+
+  <div class="container">
+    <nav aria-label="Primary">
+      <a href="#">Home</a>
+      <a href="about.html">About</a>
+      <a href="#main">Main</a>
+      <a href="https://inspirehep.net/authors/2763371?ui-citation-summary=true" target="_blank" rel="noopener">iNSPIRE-HEP Profile</a>
+      <a href="Ranadeep_CV.pdf" target="_blank" rel="noopener">My CV</a>
+      <a href="#Research">Research Highlights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main id="main" role="main">
+      <section id="main_front" aria-labelledby="about-site">
+        <h2 id="about-site">About This Site</h2>
+        <p>This is a sample site with navigation and an image. You can customize it as you like!</p>
+        <!-- <img src="img1.png" alt="Sample image description" /> -->
+      </section>
+
+      <section id="Research" aria-labelledby="research-title">
+        <h2 id="research-title">Research Highlights</h2>
+        <div class="feature-grid">
+          <a href="#section1" class="feature-box" style="background-image:url('img1.png')" aria-label="Off-Axis sGRB Afterglow">
+            <span>Off-Axis sGRB Afterglow</span>
+          </a>
+          <a href="#section2" class="feature-box" style="background-image:url('img2.png')" aria-label="lGRB Prompt Emission Duration">
+            <span>lGRB Prompt Emission Duration</span>
+          </a>
+          <a href="#section3" class="feature-box" style="background-image:url('img3.png')" aria-label="GRB Duration from Kilonova">
+            <span>GRB Duration from Kilonova</span>
+          </a>
+          <a href="#section4" class="feature-box" style="background-image:url('img4.png')" aria-label="Energy–ISM Density Constraints for Afterglow Non-Detection">
+            <span>Energy–ISM Density Constraints for Afterglow Non-Detection</span>
+          </a>
+          <a href="#section5" class="feature-box" style="background-image:url('img5.png')" aria-label="Section 5">
+            <span>Section 5</span>
+          </a>
+          <a href="#section6" class="feature-box" style="background-image:url('img6.png')" aria-label="Section 6">
+            <span>Section 6</span>
+          </a>
+        </div>
+      </section>
+
+	<section id="GRB170817A Re-brightening">
+	   <h2>Section 1</h2>
+  	    <div class="content-with-video">
+	    <div class="text">
+      	<p>GRB 170817A (also GW170817) became the first binary neutron star merger event detected via gravitational waves and electromagnetic signals. Over the next 4 yr, various multiband observations have led to reimaging of the various short gamma-ray burst and interstellar medium interaction models. While these models successfully explain the observed afterglow until ∼900 days, a rebrightening or excess flux was observed in the 1 keV X-ray band after ∼1000 days...
+        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad86bf" target="_blank" rel="noopener">
+          Could the Recent Rebrightening of the GW170817A Afterglow Be Caused by a Counterjet?
+        </a>
+      </p>
+    </div>
+    <div class="video">
+      <video controls>
+        <source src="output.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+      
+	<section id="lGRB Prompt Emission Duration"><h2>Section 2</h2><p>Content Long Gamma Ray Bursts (lGRBs) are associated with jets in Type Ic broadline supernovae. The Collapsar model provides a theoretical framework for the jet formation from the core collapse of a massive star in such supernovae. The GRB can only be produced after a successful jet break out from the star. Under this formalism the GRB duration (t90) has been hypothesized to be the difference between the central engine activity duration (teng) and the jet breakout time (tbo), that is t90=teng−tbo. This disallows t90>teng and puts a lower bound on successful lGRB jet central engine duration (teng>tbo), various numerical simulations have shown otherwise. This study considers a photospheric GRB emission from a relativistic jet punching out of a Wolf-Rayet-like star. We use the bolometric lightcurve generated to calculate the lGRB duration (t90) for varying engine duration. We find for longer engine duration the lGRB lightcurve reflects the jet profile and t90≈teng. While for shorter engine duration, the t90 has photospheric radius (Rph) dependence. This can be modeled by a relation, t90=t90eng+0.03(Rphc), where c is the speed of light, with a lower bound on t90 for a successful lGRB. This relation should be most relevant for possible low-luminous lGRBs originating from a collapsar with central engine duration comparable to the jet breakout time.\\<a href="https://arxiv.org/abs/2504.15959" target="_blank" rel="noopener">
+    A Novel Relationship Between Gamma Ray Burst Duration And Photospheric Radius</a></p></section>
+	
+	<section id="section3"><h2>Section 3</h2><p>Content <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ade870" target="_blank" rel="noopener">
+    EP250108a/SN 2025kg: A Jet-driven Stellar Explosion Interacting with Circumstellar Material</a>
+	<a href="https://arxiv.org/abs/2507.15928" target="_blank" rel="noopener">
+    A Late-time Radio Search for Highly Off-axis Jets from PTF Broad-lined Ic Supernovae in GRB-like Host Galaxy Environments</a>
+	</p></section>
+      
+	<section id="Energy ISM-density Scaling"><h2>Section 4</h2><p>Content here...</p></section>
+      
+	<section id="section5"><h2>Section 5</h2><p>Content here...</p></section>
+      
+	<section id="section6"><h2>Section 6</h2><p>Content here...</p></section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>You can add your contact info or a form here.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer role="contentinfo">
+    <small>&copy; <span id="year"></span> My Website</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

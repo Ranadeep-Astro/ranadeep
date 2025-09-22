@@ -2,154 +2,309 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Website</title>
+  <meta name="description" content="Semi-fancy site hosted on GitHub Pages with research highlights and contact info." />
   <style>
-    body {
-      font-family: 'Georgia', serif;
-      font-size: 18px;
-      margin: 0;
-      padding: 0;
-      background-color: orange;
-      color: #333;
-    }
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 1rem 0;
-      text-align: center;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      min-height: 80vh;
-    }
-    nav {
-      background-color: #005f99;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      width: 250pt;
-      min-height: 100%;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 1rem 0;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 2rem;
-      flex-grow: 1;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 3rem;
-    }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    grid-template-rows: repeat(2, 200px);
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
-.feature-box {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 1rem;
-  border-radius: 8px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* dark overlay for readability */
-  transition: transform 0.2s, box-shadow 0.2s;
+    :root {
+  --bg: #0d1b2a;      /* deep navy background */
+  --text: #f9f9f9;    /* main text */
+  --brand: #0077b6;   /* primary brand blue */
+  --brand2: #00b4d8;  /* accent cyan for links */
+  --muted: #1a1a1a;   /* muted footer/nav */
 }
 
-.feature-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}   
+  a {
+    color: var(--brand2);
+    text-decoration: none;
+    transition: color .25s ease;
+  }
+  a:hover, a:focus {
+    color: #90e0ef;
+    text-decoration: underline;
+  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+  font-family: "Segoe UI", Roboto, Georgia, serif;
+  font-size: 18px;
+  background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('website-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text);
+  line-height: 1.6;
+}
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus {
+      left: 1rem; top: 1rem; background: #fff; color: #000;
+      padding: .5rem .75rem; border-radius: .5rem; z-index: 1000;
+    }
+    header {
+  background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+    header h1 { font-size: 2.2rem; margin-bottom: .5rem; }
+    header p { font-size: 1.1rem; opacity: 0.85; }
+    .container { display: flex; min-height: 70vh; gap: 1rem; }
+    nav {
+      background: var(--nav);
+      display: flex; flex-direction: column;
+      padding: 1.25rem; width: 16rem; flex-shrink: 0;
+    }
+    nav a {
+      color: white; text-decoration: none; font-weight: 600;
+      margin: .5rem 0; padding: .35rem .5rem; border-radius: .4rem;
+      transition: all .25s ease;
+    }
+    nav a:hover, nav a:focus-visible {
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 0 10px rgba(0,180,216,0.7);
+      border-left: 4px solid var(--brand2); padding-left: .75rem;
+    }
+    main { padding: 2rem 1.5rem; flex: 1; animation: fadeInUp .7s ease both; }
+    h2 {
+      border-bottom: 2px solid var(--brand2);
+      display: inline-block; padding-bottom: .25rem; margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    p { margin-bottom: 1rem; }
+    img, video { max-width: 100%; height: auto; border-radius: var(--radius); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 1rem; margin-top: 1rem;
+    }
+    .feature-box {
+      display: flex; align-items: flex-end; justify-content: center;
+      color: white; font-weight: bold; font-size: 1.1rem;
+      padding: 1rem; border-radius: var(--radius);
+      background-size: cover; background-position: center;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+      transition: transform .25s, box-shadow .25s;
+      text-decoration: none;
+    }
+    .feature-box:hover { transform: translateY(-6px);
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.35); }
+    .content-with-video { display: flex; gap: 1.5rem; margin-top: 1rem; }
+    .content-with-video .text { flex: 2; }
+    .content-with-video .video { flex: 1; max-width: 420px; }
+    footer {
+      background: linear-gradient(90deg, #222, #111);
+      color: #bbb; text-align: center;
+      padding: 1.5rem; margin-top: 2rem; font-size: 0.9rem;
+    }
+    footer a { color: var(--brand2); margin: 0 .5rem; text-decoration: none; }
+    footer a:hover { color: #fff; }
+    @keyframes fadeInUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+      nav { width: 100%; border-bottom: 1px solid rgba(255,255,255,.15); }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .feature-grid { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+      .content-with-video { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Website</h1>
-    <p>Simple site hosted on GitHub Pages</p>
-  </header>
-<div class="container">
-  <nav>
-    <a href="#">Home</a>
-    <a href="about.html">About</a>
-    <a href="https://inspirehep.net/authors/2763371?ui-citation-summary=true">iNSPIRE-HEP Profile</a>a
-    <a href="#contact">Contact</a>
-  </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+<header role="banner">
+  <h1>Ranadeep Ghosh Dastidar</h1>
+  <p>Probing The Universe With Sand And Electrons</p>
+  <p>High-Energy Multimessenger Astrophysics • Relativistic Outflows • Non-thermal Radiation • High-Performance Computing</p>
+</header>
 
-  <main>
-    <section id="about">
-      <h2>About This Site</h2>
-      <p>This is a sample site with navigation and an image. You can customize it as you like!</p>
-      <!--img src="img1.png" alt="Sample Image" /-->
-    </section>
 
-    <section id="features">
-      <h2>Explore Sections</h2>
-    <div class="feature-grid">
-      <a href="#section1" class="feature-box" style="background-image: url('img1.png');">
-        <span>Section 1</span>
-      </a>
-      <a href="#section2" class="feature-box" style="background-image: url('img2.png');">
-        <span>Section 2</span>
-      </a>
-      <a href="#section3" class="feature-box" style="background-image: url('img3.png');">
-        <span>Section 3</span>
-      </a>
-      <a href="#section4" class="feature-box" style="background-image: url('img4.png');">
-        <span>Section 4</span>
-      </a>
-      <a href="#section5" class="feature-box" style="background-image: url('img5.png');">
-        <span>Section 5</span>
-      </a>
-      <a href="#section6" class="feature-box" style="background-image: url('img6.png');">
-        <span>Section 6</span>
-      </a>
-    </div>
-  </section>
+  <div class="container">
+    <nav aria-label="Primary">
+      <a href="#">Home</a>
+      <a href="about.html">About</a>
+      <a href="#main">Main</a>
+      <a href="Ranadeep_CV.pdf" target="_blank" rel="noopener">My CV</a>
+      <a href="#Research">Research Highlights</a>
+      <a href="https://orcid.org/0009-0000-6548-6177" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://inspirehep.net/authors/2763371?ui-citation-summary=true" target="_blank" rel="noopener">iNSPIRE-HEP Profile</a>
+      <a href="https://scholar.google.com/citations?user=rvNLitwAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <section id="section1"><h2>Section 1</h2><p>Content here...</p></section>
-  <section id="section2"><h2>Section 2</h2><p>Content here...</p></section>
-  <section id="section3"><h2>Section 3</h2><p>Content here...</p></section>
-  <section id="section4"><h2>Section 4</h2><p>Content here...</p></section>
-  <section id="section5"><h2>Section 5</h2><p>Content here...</p></section>
-  <section id="section6"><h2>Section 6</h2><p>Content here...</p></section>
+    <main id="main" role="main">
+      <section id="main_front">
+  <h2>About Me</h2>
+  <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+    <!-- Profile Image -->
+    <img src="profile_pic.JPG" alt="Profile photo of Ranadeep G. Dastidar" 
+         style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.4);" />
 
+    <!-- Description -->
+    <p style="flex: 1; min-width: 250px;">
+      As a PhD candidate in the latter half of my journey, I aspire to be an astrophysicist specializing in high-energy transients, particularly jets and GRBs—through
+a theoretically modeled approach. Driven by curiosity and a passion for
+tackling complex scientific problems from first principles, I thrive on understanding the mysteries of the universe. Equally, I find purpose in sharing this knowledge through classroom teaching or public outreach.
+      <p>This website serves as my academic profile, highlighting my research in 
+      <strong>theoretical and computational astrophysics</strong>. I focus on 
+      <em>gamma-ray bursts, relativistic jets, and high-energy transients</em>, combining 
+      multiwavelength observations with simulations to probe extreme cosmic phenomena.  
+      Here you’ll find research highlights, publications, my CV, and links to professional profiles, 
+      aimed at colleagues, collaborators, and prospective postdoctoral opportunities.<p>
+    </p>
+  </div>
+</section>
+
+      <section id="Research">
+        <h2>Research Highlights</h2>
+        <div class="feature-grid">
+	  <a href="#firefly" class="feature-box" style="background-image:url('firefly_logo.png')"><span>The Firefly Code</span></a>
+          <a href="#section1" class="feature-box" style="background-image:url('img1.png')"><span>Off-Axis sGRB Afterglow</span></a>
+          <a href="#section2" class="feature-box" style="background-image:url('img2.png')"><span>lGRB Prompt Emission Duration</span></a>
+          <a href="#section3" class="feature-box" style="background-image:url('img3.png')"><span>GRB Duration from Kilonova</span></a>
+          <a href="#section4" class="feature-box" style="background-image:url('img4.png')"><span>Energy–ISM Density Constraints</span></a>
+          <a href="#section5" class="feature-box" style="background-image:url('img5.png')"><span>Section 5</span></a>
+        </div>
+      </section>
+
+    <section id="firefly" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
   
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can add your contact info or a form here.</p>
-  </section>
+  <!-- Text content -->
+  <div style="flex: 1; min-width: 250px;">
+    <h2>Firefly: Synchrotron Radiation Code</h2>
+    <p><strong>Firefly</strong> is a publicly available code I developed for modeling 
+       <em>synchrotron radiation</em> in astrophysical contexts such as 
+       gamma-ray burst (GRB) afterglows and relativistic outflows. 
+       It includes features for:
+    </p>
+    <ul>
+      <li>Simulating multi-wavelength afterglow lightcurves (radio → X-ray)</li>
+      <li>Modeling relativistic jet dynamics and counterjet contributions</li>
+      <li>Tracking apparent motion across the observer’s sky</li>
+      <li>Exploring parameter degeneracies between geometry and microphysics</li>
+    </ul>
+    <p>
+      🔗 <a href="https://github.com/Ranadeep-Astro/Firefly_Code" 
+            target="_blank" rel="noopener">
+            Access Firefly on GitHub
+          </a>
+    </p>
+  </div>
 
-  </main>
-</div>
-  
+  <!-- Logo -->
+  <div style="flex: 0 0 220px; text-align: center;">
+    <img src="firefly_logo.png" 
+         alt="Firefly Logo" 
+         style="max-width: 100%; height: auto;" />
+  </div>
+
+</section>
+
+
+      <section id="section1">
+        <h2>GRB 170817A: Counterjet Hypothesis</h2>
+        <div class="content-with-video">
+          <div class="text">
+            <p><strong>Summary:</strong> GRB 170817A (GW170817) was the first binary neutron star merger observed in both gravitational waves and electromagnetic signals. Its afterglow showed an unexpected X-ray rebrightening at ~1000 days.</p>
+  <p>Using our <em>Firefly</em> afterglow code, we tested boosted fireball jet models with new observations (~1234 days). While the counterjet scenario is consistent with some aspects, the predicted apparent motion (~2.6c) does not match observations (5.2c–7.5c).</p>
+  <p><strong>Key Insight:</strong> Apparent motion combined with multi-band lightcurves is crucial to break degeneracies between geometry and microphysics in afterglow modeling.</p>
+  <p>Paper link: 
+    <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad86bf" target="_blank" rel="noopener">
+      Could the Recent Rebrightening of the GW170817A Afterglow Be Caused by a Counterjet?
+       </a>
+     </p>
+       </div>
+          <div class="video">
+            <video controls>
+              <source src="output.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2">
+      <h2>Long GRB Duration and Photospheric Radius</h2>
+	<div class="content-with-video">
+          <div class="text">
+        <p><strong>Summary:</strong> Long gamma-ray bursts (lGRBs) arise from relativistic jets in Type Ic supernovae. The Collapsar model links burst duration to central engine activity and jet breakout time, but simulations show deviations from this simple picture.</p>
+  <p><strong>Our Approach:</strong> Using photospheric emission models of jets emerging from Wolf–Rayet–like stars, we calculated bolometric lightcurves for varying engine durations.</p>
+  <p><strong>Findings:</strong> 
+    <ul>
+      <li>For long engine durations: t<sub>90</sub> ≈ t<sub>eng</sub>.</li>
+      <li>For short engines: t<sub>90</sub> depends on the photospheric radius, R<sub>ph</sub>.</li>
+      <li>Derived relation: t<sub>90</sub> ≈ t<sub>eng</sub> + &alpha;(R<sub>ph</sub>/c).</li>
+    </ul>
+  </p>
+  <p><strong>Key Insight:</strong> This relation helps explain possible low-luminosity lGRBs where duration reflects both geometry and microphysics, not just engine activity.</p>
+  <p>Paper link: 
+    <a href="https://arxiv.org/abs/2504.15959" target="_blank" rel="noopener">
+      A Novel Relationship Between Gamma Ray Burst Duration And Photospheric Radius
+    </a>
+  </p>
+       </div>
+          <div class="video">
+            <video controls>
+              <source src="output.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3">
+        <h2>EP250108a/SN 2025kg: Jet-Driven Stellar Explosion</h2>
+  <p><strong>Summary:</strong> EP250108a/SN 2025kg is a broad-line Type Ic supernova with a double-peaked optical light curve, linked to an Einstein Probe fast X-ray transient at z = 0.176.</p>
+  <p><strong>Findings:</strong> 
+    <ul>
+      <li>Spectrum evolves from blue continuum → SN Ic-BL.</li>
+      <li>Explosion parameters consistent with the SN Ic-BL population.</li>
+      <li>Radio and X-ray resemble low-luminosity GRB 060218/SN 2006aj.</li>
+    </ul>
+  </p>
+  <p><strong>Interpretation:</strong> Three scenarios were tested. The favored model is a <em>shocked cocoon of a choked jet in extended CSM</em>, consistent with optical, radio, and X-ray data. This model implies CSM mass M<sub>e</sub> ≈ 0.1 M⊙ and radius R<sub>e</sub> ≈ 4 × 10<sup>13</sup> cm.</p>
+  <p><strong>Key Insight:</strong> EP250108a/SN 2025kg provides a close analog to LLGRB 060218/SN 2006aj, highlighting the importance of early multiwavelength follow-up in constraining massive-star environments.</p>
+  <p>Paper link: 
+    <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ade870" target="_blank" rel="noopener">
+      EP250108a/SN 2025kg: A Jet-driven Stellar Explosion Interacting with Circumstellar Material
+    </a>
+  </p>
+      </section>
+
+      <section id="section4"><h2>Section 4</h2><p>Content here...</p></section>
+      <section id="section5"><h2>Section 5</h2><p>Content here...</p></section>
+      <section id="section6"><h2>Section 6</h2><p>Content here...</p></section>
+
+      <section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Work e-mail:</strong> <a href="mailto:yourname@purdue.edu">rdastida@purdue.edu</a></p>
+  <p><strong>Personal e-mail:</strong> <a href="mailto:yourname@gmail.com">ranadeepgd.iiserk@gmail.com</a></p>
+  <p><strong>LinkedIn:</strong> 
+    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener">
+      linkedin.com/in/ranadeep-ghosh-dastidar
+    </a>
+  </p>
+  <p><strong>Current Address:</strong><br>
+     Department of Physics and Astronomy<br>
+     Purdue University<br>
+     525 Northwestern Avenue<br>
+     West Lafayette, IN 47907, USA
+  </p>
+</section>
+    </main>
+  </div>
+
+  <footer role="contentinfo">
+    <small>&copy; <span id="year"></span> My Website —
+      <a href="#">Home</a> | <a href="#Research">Research</a> | <a href="#contact">Contact</a>
+    </small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
